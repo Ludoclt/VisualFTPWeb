@@ -1,0 +1,101 @@
+﻿<Window x:Class="VisualFTPWeb.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VisualFTPWeb"
+        xmlns:viewModel="clr-namespace:VisualFTPWeb.MVVM.ViewModel"
+        mc:Ignorable="d"
+        Width="1440" Height="900"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        AllowsTransparency="True"
+        MouseDown="WindowMouseDown">
+
+    <Window.DataContext>
+        <viewModel:MainModel/>
+    </Window.DataContext>
+
+    <Border Background="#262626"
+            CornerRadius="10">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="VisualFTPWeb"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   Foreground="White"
+                   FontSize="22"
+                   FontFamily="/Resources/Fonts/#Poppins"/>
+
+            <StackPanel Grid.Row="1">
+                <RadioButton Content="Home"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"
+                             IsChecked="True"
+                             Command="{Binding HomeViewCommand}"/>
+                <RadioButton Content="Web Browser"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding BrowserViewCommand}"/>
+                <RadioButton Content="File Explorer"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding ExplorerViewCommand}"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Right">
+
+                <Button Grid.Column="1"
+                        Style="{DynamicResource RoundedButton}" 
+                        Click="MinimizeWindow"
+                        Width="20"
+                        Height="20"
+                        Background="Black"
+                        Margin="0,0,10,25"/>
+
+                <Button Grid.Column="1"
+                        Style="{DynamicResource RoundedButton}" 
+                        Click="MaximizeWindow"
+                        Width="20"
+                        Height="20"
+                        Background="Black"
+                        Margin="0,0,10,25"/>
+                <Button Grid.Column="1"
+                        Style="{DynamicResource RoundedButton}" 
+                        Click="CloseWindow"
+                        Width="20"
+                        Height="20"
+                        Background="Black"
+                        Margin="0,0,15,25"/>
+            </StackPanel>
+
+            <ContentControl Grid.Row="1"
+                            Grid.Column="1"
+                            Margin="10"
+                            Content="{Binding CurrentView}"/>
+
+        </Grid>
+
+
+    </Border>
+    
+</Window>

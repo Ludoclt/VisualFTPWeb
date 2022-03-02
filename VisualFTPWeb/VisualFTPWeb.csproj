@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <Platforms>AnyCPU;x64</Platforms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\Images\doc_unknown.png" />
+    <None Remove="Resources\Images\doc_word.png" />
+    <None Remove="Resources\Images\excel.png" />
+    <None Remove="Resources\Images\notepad.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CefSharp.Wpf" Version="92.0.260" />
+    <PackageReference Include="FluentFTP" Version="35.2.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\doc_unknown.png" />
+    <Resource Include="Resources\Images\doc_word.png" />
+    <Resource Include="Resources\Images\excel.png" />
+    <Resource Include="Resources\Images\notepad.jpg" />
+  </ItemGroup>
+
+</Project>
